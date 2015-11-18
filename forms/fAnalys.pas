@@ -63,6 +63,7 @@ var
   i: integer;
 begin
 // ветка мастер  тест тест тест!!!!
+// этот комент для теста комитов из айдие)
   Qdan.Open;
   with StringGrid1 do
   begin
