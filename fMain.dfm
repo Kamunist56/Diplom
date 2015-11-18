@@ -17,7 +17,7 @@ object Main: TMain
   TextHeight = 13
   object ActionToolBar1: TActionToolBar
     Left = 0
-    Top = 27
+    Top = 25
     Width = 769
     Height = 23
     ActionManager = ActionManager1
@@ -39,7 +39,7 @@ object Main: TMain
     Left = 0
     Top = 0
     Width = 769
-    Height = 27
+    Height = 25
     UseSystemFont = False
     ActionManager = ActionManager1
     Caption = 'ActionMainMenuBar1'

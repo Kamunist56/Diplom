@@ -8,7 +8,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, System.Actions, Vcl.ActnList,
   Vcl.ActnMenus, Vcl.ToolWin, Vcl.ActnMan, Vcl.ActnCtrls,
   Vcl.PlatformDefaultStyleActnCtrls;
-  const vers = '1.0.1';
+
 type
   TMain = class(TForm)
     ActionManager1: TActionManager;

@@ -178,6 +178,7 @@ object Analys: TAnalys
     end
   end
   object AC: TADOConnection
+    Connected = True
     ConnectionString = 
       'Provider=SQLOLEDB.1;Password=1qaz!QAZ;Persist Security Info=True' +
       ';User ID=prog;Initial Catalog=Class_of_diseases;Data Source=95.1' +

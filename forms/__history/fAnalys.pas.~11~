@@ -62,7 +62,7 @@ procedure TAnalys.Button1Click(Sender: TObject);
 var
   i: integer;
 begin
-// ветка мастер  тест тест тест!!!!
+// ветка мастер
   Qdan.Open;
   with StringGrid1 do
   begin
