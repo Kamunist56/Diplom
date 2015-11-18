@@ -65,6 +65,7 @@ begin
 // ветка мастер  тест тест тест!!!!
 // этот комент для теста комитов из айдие)
 // пробуем .gitignore
+// history не должны войти
   Qdan.Open;
   with StringGrid1 do
   begin
