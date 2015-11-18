@@ -64,6 +64,7 @@ var
 begin
 // ветка мастер  тест тест тест!!!!
 // этот комент для теста комитов из айдие)
+// пробуем .gitignore
   Qdan.Open;
   with StringGrid1 do
   begin
