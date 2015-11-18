@@ -68,6 +68,8 @@ begin
 // history не должны войти
 
 
+
+
   Qdan.Open;
   with StringGrid1 do
   begin
