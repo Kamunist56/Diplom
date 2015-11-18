@@ -1,0 +1,57 @@
+unit fPolisЕнзу;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, System.Actions, Vcl.ActnList,
+  Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnMan, Vcl.ToolWin, Vcl.ActnCtrls,
+  Vcl.Grids, Vcl.DBGrids, cPolis;
+
+type
+  TuPolisType = class(TForm)
+    DBGrid1: TDBGrid;
+    ActionToolBar1: TActionToolBar;
+    AC: TActionManager;
+    Action1: TAction;
+    Action2: TAction;
+    Action3: TAction;
+    DataSource1: TDataSource;
+    procedure Action2Execute(Sender: TObject);
+    procedure Action3Execute(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  uPolisType: TuPolisType;
+  Polis:Tpolis;
+
+implementation
+
+{$R *.dfm}
+
+uses fDM, ePolis;
+
+procedure TuPolisType.Action2Execute(Sender: TObject);
+begin
+  PolisEdit.Show;
+  PolisEdit.edit1.text := dm.QpolisBrowsenumber.AsString;
+  PolisEdit.LookPolisType.KeyValue := dm.QpolisBrowsepolisId.AsInteger;
+end;
+
+procedure TuPolisType.Action3Execute(Sender: TObject);
+begin
+ if MessageBox(handle, 'Удалить полис', 'Удаление записи',
+    (MB_YESNO + MB_ICONQUESTION)) = idyes then
+    begin
+      Polis:=Tpolis.Create;
+      polis.Del(dm.QpolisBrowseid.AsInteger);
+      close;
+    end;
+end;
+
+end.

@@ -1,0 +1,68 @@
+unit fWork;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, System.Actions, Vcl.ActnList,
+  Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnMan, Vcl.ToolWin, Vcl.ActnCtrls,
+  Vcl.Grids, Vcl.DBGrids;
+
+type
+  TuWork = class(TForm)
+    DBGrid1: TDBGrid;
+    ActionToolBar1: TActionToolBar;
+    AC: TActionManager;
+    Action1: TAction;
+    Action2: TAction;
+    Action3: TAction;
+    DataSource1: TDataSource;
+    procedure Action1Execute(Sender: TObject);
+    procedure Action2Execute(Sender: TObject);
+    procedure Action3Execute(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  uWork: TuWork;
+
+implementation
+
+{$R *.dfm}
+
+uses eWorkEdit, fDM;
+
+procedure TuWork.Action1Execute(Sender: TObject);
+begin
+  WorkEdit.Show;
+  WorkEdit.Insert:=true;
+end;
+
+procedure TuWork.Action2Execute(Sender: TObject);
+begin
+  with WorkEdit do
+  begin
+   Show;
+   Insert:=false;
+   LookLoc.KeyValue:=dm.QWorkBrowseidLoc.asinteger;
+   LookArea.KeyValue:=dm.QWorkBrowseidAr.AsInteger;
+   LookStreet.KeyValue:=dm.QWorkBrowseidStreet.AsInteger;
+   LookHouse.KeyValue:=dm.QWorkBrowseidHouse.AsInteger;
+   LabeledEdit1.Text:=dm.QWorkBrowsename.AsString;
+  end;
+
+end;
+
+procedure TuWork.Action3Execute(Sender: TObject);
+begin
+  if MessageBox(handle, 'Удалить место работы', 'Удаление записи',
+    (MB_YESNO + MB_ICONQUESTION)) = idyes then
+  begin
+    WorkEdit.Del;
+  end;
+end;
+
+end.

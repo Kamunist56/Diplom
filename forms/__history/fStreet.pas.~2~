@@ -1,0 +1,38 @@
+unit fStreet;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ToolWin, Vcl.ActnMan, Vcl.ActnCtrls,
+  System.Actions, Vcl.ActnList, Vcl.PlatformDefaultStyleActnCtrls, Vcl.StdCtrls;
+
+type
+  TStreet = class(TForm)
+    Memo1: TMemo;
+    ActionManager1: TActionManager;
+    Action1: TAction;
+    ActionToolBar1: TActionToolBar;
+    procedure Action1Execute(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Street: TStreet;
+
+implementation
+
+{$R *.dfm}
+
+uses cStreet;
+var strt:Tstreet;
+procedure TStreet.Action1Execute(Sender: TObject);
+begin
+   strt:=TStreet.create(1);
+   memo1.lines.add(strt.name);
+end;
+
+end.

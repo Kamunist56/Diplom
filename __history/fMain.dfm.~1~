@@ -1,0 +1,86 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 316
+  ClientWidth = 565
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object ActionToolBar1: TActionToolBar
+    Left = 0
+    Top = 0
+    Width = 565
+    Height = 23
+    ActionManager = ActionManager1
+    Caption = 'ActionToolBar1'
+    Color = clMenuBar
+    ColorMap.DisabledFontColor = 7171437
+    ColorMap.HighlightColor = clWhite
+    ColorMap.BtnSelectedFont = clBlack
+    ColorMap.UnusedColor = clWhite
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    Spacing = 0
+  end
+  object ActionMainMenuBar1: TActionMainMenuBar
+    Left = 0
+    Top = 23
+    Width = 565
+    Height = 29
+    UseSystemFont = False
+    Caption = 'ActionMainMenuBar1'
+    Color = clMenuBar
+    ColorMap.DisabledFontColor = 7171437
+    ColorMap.HighlightColor = clWhite
+    ColorMap.BtnSelectedFont = clBlack
+    ColorMap.UnusedColor = clWhite
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    Spacing = 0
+    ExplicitLeft = 240
+    ExplicitTop = 208
+    ExplicitWidth = 150
+  end
+  object ActionManager1: TActionManager
+    ActionBars = <
+      item
+        Items = <
+          item
+            Action = Action1
+          end
+          item
+            Action = Action2
+          end
+          item
+            Action = Action3
+          end>
+        ActionBar = ActionToolBar1
+      end>
+    Left = 424
+    Top = 192
+    StyleName = 'Platform Default'
+    object Action1: TAction
+      Caption = #1060#1072#1081#1083
+    end
+    object Action2: TAction
+      Caption = #1057#1087#1088#1072#1074#1086#1095#1085#1080#1082#1080
+    end
+    object Action3: TAction
+      Caption = #1040#1085#1072#1083#1080#1079
+    end
+  end
+end

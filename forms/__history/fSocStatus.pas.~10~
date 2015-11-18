@@ -1,0 +1,68 @@
+unit fSocStatus;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, System.Actions, Vcl.ActnList,
+  Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnMan, Vcl.ToolWin, Vcl.ActnCtrls,
+  Vcl.Grids, Vcl.DBGrids, cSmallTables;
+
+type
+  TuSocStatus = class(TForm)
+    DBGrid1: TDBGrid;
+    ActionToolBar1: TActionToolBar;
+    AC: TActionManager;
+    Action1: TAction;
+    Action2: TAction;
+    Action3: TAction;
+    DataSource1: TDataSource;
+    procedure Action1Execute(Sender: TObject);
+    procedure Action2Execute(Sender: TObject);
+    procedure Action3Execute(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  uSocStatus: TuSocStatus;
+  SocStatus: TSmallTables;
+
+implementation
+
+{$R *.dfm}
+
+uses fDM;
+
+procedure TuSocStatus.Action1Execute(Sender: TObject);
+var
+  name: String;
+begin
+  SocStatus := TSmallTables.Create('SocStatus');
+  InputQuery('Добавление социального статуса', 'Введенеи наименование', name);
+  SocStatus.name := name;
+  SocStatus.New(SocStatus);
+end;
+
+procedure TuSocStatus.Action2Execute(Sender: TObject);
+var
+  name: String;
+begin
+  SocStatus := TSmallTables.Create('SocStatus');
+  SocStatus.GetAtr(dm.QSocStatusBrowseid.AsInteger);
+  InputBox('Редактирование социального статуса', 'Введенеи новое наименование',
+    dm.QSocStatusBrowsename.AsString);
+  SocStatus.name := name;
+  SocStatus.ChangeAtr(SocStatus);
+end;
+
+procedure TuSocStatus.Action3Execute(Sender: TObject);
+begin
+   SocStatus := TSmallTables.Create('SocStatus');
+   SocStatus.Del(dm.QSocStatusBrowseid.AsInteger);
+end;
+
+end.

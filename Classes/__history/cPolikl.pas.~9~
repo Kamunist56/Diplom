@@ -1,0 +1,73 @@
+unit cPolikl;
+
+interface
+
+{ класс для работы с polikl }
+Type
+  Tpolikl = Class
+  public
+    id: integer;
+    name: String;
+    adress: String;
+    id_adress: integer;
+
+    procedure Get(find_id:integer);
+    procedure New(Polikl: Tpolikl);
+    procedure ChangeAtr(Polikl: Tpolikl);
+  End;
+
+implementation
+
+{ Tpolikl }
+
+uses fDM, cAdress;
+
+var
+  Adr: Tadress;
+
+procedure Tpolikl.ChangeAtr(Polikl: Tpolikl);
+begin
+    with dm.QPolikl do
+  begin
+    close;
+    sql.add('update Polikl set name=:name, adress=:adress) where id=:id');
+    Parameters.paramvalues['id'] :=Polikl.id;
+    Parameters.paramvalues['name'] := Polikl.name;
+    Parameters.paramvalues['adress'] := Polikl.id_adress;
+    ExecSQL;
+  end;
+end;
+
+procedure Tpolikl.Get(find_id:integer);
+var idadr:integer;
+begin
+  with dm.QPolikl do
+  begin
+    close;
+    sql.add('select name, adress from Polikl where id=:id');
+    Parameters.paramvalues['id'] := find_id;
+    open;
+  end;
+  idadr:=dm.QPolikl.FieldByName('id').asinteger;
+
+  Adr := adr.Create;
+  Adr.GetAtr(idadr);
+  adress := Adr.GetFullAdress;
+  name := dm.QPolikl.FieldByName('name').asString;
+  id := find_id;
+  id_adress := Adr.id;
+end;
+
+procedure Tpolikl.New(Polikl: Tpolikl);
+begin
+  with dm.QPolikl do
+  begin
+    close;
+    sql.add('insert Polikl(name, adress) values (:name, :adress)');
+    Parameters.paramvalues['name'] := Polikl.name;
+    Parameters.paramvalues['adress'] := Polikl.id_adress;
+    ExecSQL;
+  end;
+end;
+
+end.

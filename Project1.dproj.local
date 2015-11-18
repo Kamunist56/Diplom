@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2015.10.10 15:35:30.578,=C:\Users\Kamunist\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2015.10.10 15:41:17.123,C:\Users\Kamunist\Documents\Embarcadero\Studio\Projects\fMain.dfm=C:\Users\Kamunist\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2015.10.10 15:41:17.123,C:\Users\Kamunist\Documents\Embarcadero\Studio\Projects\fMain.pas=C:\Users\Kamunist\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2015.10.10 18:19:49.292,C:\Users\Kamunist\DelphiProjects\Diplom\fMain.dfm=C:\Users\Kamunist\Documents\Embarcadero\Studio\Projects\fMain.dfm</Transaction>
+    <Transaction>2015.10.10 18:19:49.292,C:\Users\Kamunist\DelphiProjects\Diplom\fMain.pas=C:\Users\Kamunist\Documents\Embarcadero\Studio\Projects\fMain.pas</Transaction>
+    <Transaction>2015.10.10 18:19:54.349,C:\Users\Kamunist\DelphiProjects\Diplom\Project1.dproj=C:\Users\Kamunist\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2015.10.10 18:30:17.694,=C:\Users\Kamunist\DelphiProjects\Diplom\Unit1.pas</Transaction>
+    <Transaction>2015.10.10 18:31:04.311,C:\Users\Kamunist\DelphiProjects\Diplom\fDM.pas=C:\Users\Kamunist\DelphiProjects\Diplom\Unit1.pas</Transaction>
+    <Transaction>2015.10.10 18:31:04.311,C:\Users\Kamunist\DelphiProjects\Diplom\fDM.dfm=C:\Users\Kamunist\DelphiProjects\Diplom\Unit1.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

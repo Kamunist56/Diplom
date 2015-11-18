@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{00575C55-A43A-4EE4-AAD2-AB6573F58F3A}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Disease.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\Loader\Loader.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Disease">
+        <MSBuild Projects="Disease.dproj"/>
+    </Target>
+    <Target Name="Disease:Clean">
+        <MSBuild Projects="Disease.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Disease:Make">
+        <MSBuild Projects="Disease.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Loader">
+        <MSBuild Projects="..\Loader\Loader.dproj"/>
+    </Target>
+    <Target Name="Loader:Clean">
+        <MSBuild Projects="..\Loader\Loader.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Loader:Make">
+        <MSBuild Projects="..\Loader\Loader.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Disease;Loader"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Disease:Clean;Loader:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Disease:Make;Loader:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

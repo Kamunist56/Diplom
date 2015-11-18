@@ -1,0 +1,51 @@
+unit cStreet;
+
+interface
+ {Класс для работы с таблицей Облость}
+type
+  TArea = Class
+  public
+    id: integer;
+    name: string;
+
+    procedure GetAtr(Find_id: integer);
+    procedure ChangeAtr(Street: TArea);
+    procedure New(Street: TArea);
+    procedure Del(Street: TArea);
+  End;
+
+implementation
+
+{ TArea }
+
+uses fDM;
+
+procedure TArea.ChangeAtr(Street: TArea);
+begin
+  dm.QUpdArea.Parameters.ParamValues['id'] := Street.id;
+  dm.QUpdArea.Parameters.ParamValues['name'] := Street.name;
+  dm.QUpdArea.ExecSQL;
+end;
+
+procedure TArea.Del(Street: TArea);
+begin
+  dm.QdelArea.Parameters.ParamValues['id'] := Street.id;
+  dm.QdelArea.execSQL;
+end;
+
+procedure TArea.GetAtr(Find_id: integer);
+begin
+  dm.QGeTArea.Close;
+  dm.QGeTArea.Parameters.ParamValues['id'] := Find_id;
+  dm.QGeTArea.Open;
+  name := dm.QGeTAreaname.AsString;
+  id := Find_id;
+end;
+
+procedure TArea.New(Street: TArea);
+begin
+  dm.QInsArea.Parameters.ParamValues['name'] := Street.name;
+  dm.QInsArea.ExecSQL;
+end;
+
+end.

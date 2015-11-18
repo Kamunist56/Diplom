@@ -1,0 +1,60 @@
+unit fPolisType;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, System.Actions, Vcl.ActnList,
+  Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnMan, Vcl.ToolWin, Vcl.ActnCtrls,
+  Vcl.Grids, Vcl.DBGrids, cSmallTables;
+
+type
+  TuPolisType = class(TForm)
+    DBGrid1: TDBGrid;
+    ActionToolBar1: TActionToolBar;
+    AC: TActionManager;
+    Action1: TAction;
+    Action2: TAction;
+    Action3: TAction;
+    DataSource1: TDataSource;
+    procedure Action3Execute(Sender: TObject);
+    procedure Action1Execute(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  uPolisType: TuPolisType;
+  PolisType: TSmallTables;
+
+implementation
+
+{$R *.dfm}
+
+uses fDM, ePolis;
+
+procedure TuPolisType.Action1Execute(Sender: TObject);
+var
+  newName: String;
+begin
+  PolisType := TSmallTables.Create('PolisType');
+  InputQuery('Добавление нового вида полиса', 'Введите наименование', newName);
+  PolisType.name := newName;
+  PolisType.New;
+end;
+
+procedure TuPolisType.Action3Execute(Sender: TObject);
+begin
+  if MessageBox(handle, 'Удалить полис', 'Удаление записи',
+    (MB_YESNO + MB_ICONQUESTION)) = idyes then
+  begin
+    PolisType := TSmallTables.Create('PolisType');
+    PolisType.Del(dm.QpolisTypeBrowseid.AsInteger);
+    close;
+  end;
+end;
+
+end.

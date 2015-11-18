@@ -1,0 +1,74 @@
+unit cSmallTables;
+
+interface
+ {
+   Класс для работы с таблицами:
+   locality, area, street, house_number
+   Group_inval, Polis_type, Position, SocStatus
+ }
+type
+  TSmallTables = Class
+  public
+    id: integer;
+    name: string;
+    tableName :string;
+
+    procedure GetAtr(Find_id: integer;table:string);
+    procedure ChangeAtr(SmallTables: TSmallTables);
+    procedure New(SmallTables: TSmallTables);
+    procedure Del(SmallTables: TSmallTables);
+    constructor Create(Name:String);
+  End;
+
+implementation
+
+{ TSmall_tables }
+
+uses fDM;
+
+procedure TSmallTables.ChangeAtr(SmallTables: TSmallTables);
+begin
+  dm.QSmall_tables.Close;
+  dm.QSmall_tables.SQL.Clear;
+  dm.QSmall_tables.SQL.Add('update '+SmallTables.tableName+' set name=:name where id=:id');
+  dm.QSmall_tables.Parameters.ParamValues['id'] := SmallTables.id;
+  dm.QSmall_tables.Parameters.ParamValues['name'] := SmallTables.name;
+  dm.QSmall_tables.ExecSQL;
+end;
+
+constructor TSmallTables.Create(Name: String);
+begin
+  Tablename:=Name;
+end;
+
+procedure TSmallTables.Del(SmallTables: TSmallTables);
+begin
+  dm.QSmall_tables.Close;
+  dm.QSmall_tables.SQL.Clear;
+  dm.QSmall_tables.SQL.Add('delete from '+SmallTables.tableName+' where id=:id');
+  dm.QSmall_tables.Parameters.ParamValues['id'] := SmallTables.id;
+  dm.QSmall_tables.execSQL;
+end;
+
+procedure TSmallTables.GetAtr(Find_id: integer;table:string);
+begin
+  dm.QSmall_tables.Close;
+  dm.QSmall_tables.SQL.Clear;
+  dm.QSmall_tables.SQL.Add('select name from '+table+' where id=:id');
+  dm.QSmall_tables.Parameters.ParamValues['id'] := Find_id;
+  dm.QSmall_tables.Open;
+  name := dm.QSmall_tables.FieldByName('name').AsString;
+  id := Find_id;
+  TableName:=table;
+end;
+
+procedure TSmallTables.New(SmallTables: TSmallTables);
+begin
+  dm.QSmall_tables.Close;
+  dm.QSmall_tables.SQL.Clear;
+  dm.QSmall_tables.SQL.Add('insert '+SmallTables.tableName+'(name) Values(:name)');
+  dm.QSmall_tables.Parameters.ParamValues['name'] := SmallTables.name;
+  dm.QSmall_tables.ExecSQL;
+end;
+
+end.

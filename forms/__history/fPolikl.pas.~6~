@@ -1,0 +1,59 @@
+unit fPolikl;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, System.Actions, Vcl.ActnList,
+  Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnMan, Vcl.ToolWin, Vcl.ActnCtrls,
+  Vcl.Grids, Vcl.DBGrids;
+
+type
+  TuPolikl = class(TForm)
+    DBGrid1: TDBGrid;
+    ActionToolBar1: TActionToolBar;
+    AC: TActionManager;
+    Action1: TAction;
+    Action2: TAction;
+    Action3: TAction;
+    DataSource1: TDataSource;
+    procedure Action1Execute(Sender: TObject);
+    procedure Action2Execute(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  uPolikl: TuPolikl;
+
+implementation
+
+{$R *.dfm}
+
+uses fDM, ePolikl;
+
+procedure TuPolikl.Action1Execute(Sender: TObject);
+begin
+  dm.OpenAdressTables;
+  PoliklEdit.Show;
+  PoliklEdit.insert:=true;
+  PoliklEdit.LabeledEdit1.Clear;
+end;
+
+procedure TuPolikl.Action2Execute(Sender: TObject);
+begin
+  dm.OpenAdressTables;
+  PoliklEdit.Show;
+  PoliklEdit.insert:=false;
+  PoliklEdit.LabeledEdit1.text:=dm.QPoliklBrowsename.AsString;
+  PoliklEdit.Adress.GetAtr(dm.QPoliklBrowseid.AsInteger);
+  poliklEdit.lookArea.KeyField:=PoliklEdit.adress.ar.id;
+  poliklEdit.LookLoc.KeyField:=PoliklEdit.adress.Loc.id;
+  poliklEdit.LookStreet.KeyField:=PoliklEdit.adress.Street.id;
+  poliklEdit.LookHouse.KeyField:=PoliklEdit.adress.House_numb.id;
+  PoliklEdit.Adress.Destroy;
+end;
+
+end.

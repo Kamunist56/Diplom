@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.715,=D:\Яндекс диск\Projects\Diplom\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.185,D:\Яндекс диск\Projects\Diplom\Unit1.pas=D:\Яндекс диск\Projects\Diplom\forms\fStreet.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.266,C:\Users\Kamunist\DelphiProjects\Diplom\Project1.dproj=C:\Users\Kamunist\DelphiProjects\Diplom\Disease.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.686,=D:\Яндекс диск\Projects\Diplom\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.311,C:\Users\Kamunist\DelphiProjects\Diplom\fDM.dfm=C:\Users\Kamunist\DelphiProjects\Diplom\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.112,=D:\Яндекс диск\Projects\Diplom\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.372,D:\Яндекс диск\Projects\Diplom\Unit1.pas=D:\Яндекс диск\Projects\Diplom\Classes\cStreet.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.349,C:\Users\Kamunist\DelphiProjects\Diplom\Project1.dproj=C:\Users\Kamunist\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.311,C:\Users\Kamunist\DelphiProjects\Diplom\fDM.pas=C:\Users\Kamunist\DelphiProjects\Diplom\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.123,C:\Users\Kamunist\Documents\Embarcadero\Studio\Projects\fMain.dfm=C:\Users\Kamunist\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.660,C:\Users\Kamunist\DelphiProjects\Diplom\cPac.pas=C:\Users\Kamunist\DelphiProjects\Diplom\Classes\cPac.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.128,C:\Users\Kamunist\DelphiProjects\Diplom\fAdress.dfm=C:\Users\Kamunist\DelphiProjects\Diplom\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.292,C:\Users\Kamunist\DelphiProjects\Diplom\fMain.dfm=C:\Users\Kamunist\Documents\Embarcadero\Studio\Projects\fMain.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.128,C:\Users\Kamunist\DelphiProjects\Diplom\fAdress.pas=C:\Users\Kamunist\DelphiProjects\Diplom\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.578,=C:\Users\Kamunist\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.123,C:\Users\Kamunist\Documents\Embarcadero\Studio\Projects\fMain.pas=C:\Users\Kamunist\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.877,C:\Users\Kamunist\DelphiProjects\Diplom\fPac.dfm=C:\Users\Kamunist\DelphiProjects\Diplom\forms\fPac.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.185,D:\Яндекс диск\Projects\Diplom\Unit1.dfm=D:\Яндекс диск\Projects\Diplom\forms\fStreet.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.675,C:\Users\Kamunist\DelphiProjects\Diplom\fPac.pas=C:\Users\Kamunist\DelphiProjects\Diplom\fAdress.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.877,C:\Users\Kamunist\DelphiProjects\Diplom\fPac.pas=C:\Users\Kamunist\DelphiProjects\Diplom\forms\fPac.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.675,C:\Users\Kamunist\DelphiProjects\Diplom\fPac.dfm=C:\Users\Kamunist\DelphiProjects\Diplom\fAdress.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.018,=C:\Users\Kamunist\DelphiProjects\Diplom\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.400,=C:\Users\Kamunist\DelphiProjects\Diplom\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.292,C:\Users\Kamunist\DelphiProjects\Diplom\fMain.pas=C:\Users\Kamunist\Documents\Embarcadero\Studio\Projects\fMain.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.207,C:\Users\Kamunist\DelphiProjects\Diplom\Unit1.pas=C:\Users\Kamunist\DelphiProjects\Diplom\cPac.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.694,=C:\Users\Kamunist\DelphiProjects\Diplom\Unit1.pas</Transaction>
+    <Transaction>2015.10.13 21:27:26.185,D:\_Доки\Яндекс Диск\Projects\Diplom\forms\fAdress.pas=D:\_Доки\Яндекс Диск\Projects\Diplom\forms\fStreet.pas</Transaction>
+    <Transaction>2015.10.13 21:27:26.185,D:\_Доки\Яндекс Диск\Projects\Diplom\forms\fAdress.dfm=D:\_Доки\Яндекс Диск\Projects\Diplom\forms\fStreet.dfm</Transaction>
+    <Transaction>2015.10.13 21:36:06.774,=D:\_Доки\Яндекс Диск\Projects\Diplom\Unit1.pas</Transaction>
+    <Transaction>2015.10.13 21:36:20.435,D:\_Доки\Яндекс Диск\Projects\Diplom\Classes\cArea.pas=D:\_Доки\Яндекс Диск\Projects\Diplom\Unit1.pas</Transaction>
+    <Transaction>2015.10.13 21:44:05.331,=D:\_Доки\Яндекс Диск\Projects\Diplom\Unit1.pas</Transaction>
+    <Transaction>2015.10.13 21:48:24.415,D:\_Доки\Яндекс Диск\Projects\Diplom\Classes\cLocality.pas=D:\_Доки\Яндекс Диск\Projects\Diplom\Unit1.pas</Transaction>
+    <Transaction>2015.10.13 21:58:01.179,=D:\_Доки\Яндекс Диск\Projects\Diplom\Unit1.pas</Transaction>
+    <Transaction>2015.10.13 21:58:21.021,D:\_Доки\Яндекс Диск\Projects\Diplom\Classes\cHouse_number.pas=D:\_Доки\Яндекс Диск\Projects\Diplom\Unit1.pas</Transaction>
+    <Transaction>2015.10.13 22:00:10.645,D:\_Доки\Яндекс Диск\Projects\Diplom\Classes\cHouse_number.pas=</Transaction>
+    <Transaction>2015.10.13 22:00:14.373,D:\_Доки\Яндекс Диск\Projects\Diplom\Classes\cLocality.pas=</Transaction>
+    <Transaction>2015.10.13 22:00:17.939,D:\_Доки\Яндекс Диск\Projects\Diplom\Classes\cArea.pas=</Transaction>
+    <Transaction>2015.10.13 22:00:44.509,D:\_Доки\Яндекс Диск\Projects\Diplom\Classes\cAdresPart.pas=D:\_Доки\Яндекс Диск\Projects\Diplom\Classes\cStreet.pas</Transaction>
+    <Transaction>2015.10.13 22:23:48.101,D:\_Доки\Яндекс Диск\Projects\Diplom\Classes\cSmallTables.pas=D:\_Доки\Яндекс Диск\Projects\Diplom\Classes\cAdresPart.pas</Transaction>
+    <Transaction>2015.10.13 22:33:56.131,=D:\_Доки\Яндекс Диск\Projects\Diplom\Unit1.pas</Transaction>
+    <Transaction>2015.10.13 22:39:22.521,D:\_Доки\Яндекс Диск\Projects\Diplom\Classes\cDiagnoses.pas=D:\_Доки\Яндекс Диск\Projects\Diplom\Unit1.pas</Transaction>
+    <Transaction>2015.10.13 23:00:52.038,=D:\_Доки\Яндекс Диск\Projects\Diplom\Unit1.pas</Transaction>
+    <Transaction>2015.10.13 23:01:56.612,D:\_Доки\Яндекс Диск\Projects\Diplom\Classes\cDoctor.pas=D:\_Доки\Яндекс Диск\Projects\Diplom\Unit1.pas</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="Classes"/>
+    <File Path="Classes\cPac.pas"/>
+    <File Path="Classes\cSmallTables.pas"/>
+    <File Path="Classes\cDiagnoses.pas"/>
+    <File Path="Classes\cDoctor.pas"/>
+    <File Path="forms"/>
+    <File Path="forms\fAdress.pas"/>
+    <File Path="forms\fAdress.dfm"/>
+    <File Path="forms\fPac.pas"/>
+    <File Path="forms\fPac.dfm"/>
+    <File Path="fDM.pas"/>
+    <File Path="fDM.dfm"/>
+    <File Path="fMain.pas"/>
+    <File Path="fMain.dfm"/>
+  </ProjectSortOrder>
+</BorlandProject>

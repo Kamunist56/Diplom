@@ -1,0 +1,67 @@
+unit cDiagnoses;
+
+interface
+
+{ Класс для работы с таблицами Diagnoses }
+type
+  TDiagnoses = Class
+  public
+    id: integer;
+    code: String;
+    name: string;
+
+    procedure GetAtr(Find_id: integer);
+    procedure ChangeAtr;
+    procedure New;
+    procedure Del(idRec: integer);
+  End;
+
+implementation
+
+{ TDiagnoses }
+
+uses fDM;
+
+procedure TDiagnoses.ChangeAtr;
+begin
+  dm.QDiagnoses.Close;
+  dm.QDiagnoses.Parameters.Clear;
+  dm.QDiagnoses.SQL.Add('update Diagnoses set');
+  dm.QDiagnoses.SQL.Add(' name=:name, code=:code  where id=:id');
+  dm.QDiagnoses.Parameters.ParamValues['name'] := name;
+  dm.QDiagnoses.Parameters.ParamValues['code'] := code;
+  dm.QDiagnoses.Parameters.ParamValues['id'] := id;
+  dm.QDiagnoses.ExecSQL;
+end;
+
+procedure TDiagnoses.Del(idRec: integer);
+begin
+  dm.QDiagnoses.Close;
+  dm.QDiagnoses.SQL.Add('delete from Diagnoses where id=:id');
+  dm.QDiagnoses.Parameters.ParamValues['id'] := idRec;
+  dm.QDiagnoses.ExecSQL;
+end;
+
+procedure TDiagnoses.GetAtr(Find_id: integer);
+begin
+  dm.QDiagnoses.Close;
+  dm.QDiagnoses.SQL.Add('select name, code from Diagnoses where id=:id');
+  dm.QDiagnoses.Parameters.ParamValues['id'] := Find_id;
+  dm.QDiagnoses.Open;
+  name := dm.QDiagnoses.FieldByName('name').AsString;
+  code := dm.QDiagnoses.FieldByName('code').AsString;
+  id := Find_id;
+end;
+
+procedure TDiagnoses.New;
+var
+  Query: String;
+begin
+  dm.QDiagnoses.Close;
+  dm.QDiagnoses.SQL.Add('insert Diagnoses (code, name)  Values(:name,:code)');
+  dm.QDiagnoses.Parameters.ParamValues['code'] := code;
+  dm.QDiagnoses.Parameters.ParamValues['name'] := name;
+  dm.QDiagnoses.ExecSQL;
+end;
+
+end.

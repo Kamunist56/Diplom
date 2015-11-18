@@ -1,0 +1,61 @@
+unit eVisit;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls,
+  Vcl.ComCtrls, Vcl.DBCtrls, cVisit;
+
+type
+  TVisitEdit = class(TForm)
+    LookPac: TDBLookupComboBox;
+    DateTimePicker1: TDateTimePicker;
+    Label1: TLabel;
+    LookDoc: TDBLookupComboBox;
+    Label2: TLabel;
+    LookDiag: TDBLookupComboBox;
+    Label3: TLabel;
+    Label4: TLabel;
+    Button1: TButton;
+    procedure Button1Click(Sender: TObject);
+  private
+  Visit:TVisit;
+    { Private declarations }
+  public
+  Insert:Boolean;
+  idVist:integer;
+
+  procedure AddRec;
+    { Public declarations }
+  end;
+
+var
+  VisitEdit: TVisitEdit;
+
+implementation
+
+{$R *.dfm}
+
+uses fDM;
+
+{ TVisitEdit }
+
+procedure TVisitEdit.AddRec;
+begin
+  Visit:=TVisit.Create;
+  Visit.dateVisit:=DateTimePicker1.Date;
+  Visit.Pac.id:=Lookpac.KeyValue;
+  Visit.Doc.id:=LookDoc.KeyValue;
+  Visit.Diag.id:=LookDiag.KeyValue;
+  Visit.New;
+  dm.RefTable(dm.QVisitBrowse);
+end;
+
+procedure TVisitEdit.Button1Click(Sender: TObject);
+begin
+  if Insert then
+    AddRec
+end;
+
+end.

@@ -1,0 +1,60 @@
+unit cAdresPart;
+
+interface
+ {Класс для работы с таблицей улиц}
+type
+  TAdres_part = Class
+  public
+    id: integer;
+    name: string;
+    tableName :string;
+
+    procedure GetAtr(Find_id: integer);
+    procedure ChangeAtr(Adres_part: TAdres_part);
+    procedure New(Adres_part: TAdres_part);
+    procedure Del(Adres_part: TAdres_part);
+  End;
+
+implementation
+
+{ TAdres_part }
+
+uses fDM;
+
+procedure TAdres_part.ChangeAtr(Adres_part: TAdres_part);
+begin
+  dm.QAdres_part.Close;
+  dm.QAdres_part.SQL.Add('update :tableName set name=:name where id=:id');
+  dm.QAdres_part.Parameters.ParamValues['tableName'] := Adres_part.tableName;
+  dm.QAdres_part.Parameters.ParamValues['id'] := Adres_part.id;
+  dm.QAdres_part.Parameters.ParamValues['name'] := Adres_part.name;
+  dm.QAdres_part.ExecSQL;
+end;
+
+procedure TAdres_part.Del(Adres_part: TAdres_part);
+begin
+  dm.QAdres_part.Close;
+  dm.QAdres_part.SQL.Add('delete from :tableName where id=:id');
+  dm.QAdres_part.Parameters.ParamValues['tableName'] := Adres_part.tableName;
+  dm.QAdres_part.Parameters.ParamValues['id'] := Adres_part.id;
+  dm.QAdres_part.execSQL;
+end;
+
+procedure TAdres_part.GetAtr(Find_id: integer);
+begin
+  dm.QAdres_part.Close;
+  dm.QAdres_part.SQL.Add('select name from :tableName where id=:id');
+  dm.QAdres_part.Parameters.ParamValues['tableName'] := Adres_part.tableName;
+  dm.QAdres_part.Parameters.ParamValues['id'] := Find_id;
+  dm.QAdres_part.Open;
+  name := dm.QAdres_part.FieldByName('name').AsString;
+  id := Find_id;
+end;
+
+procedure TAdres_part.New(Adres_part: TAdres_part);
+begin
+  dm.QInsAdres_part.Parameters.ParamValues['name'] := Adres_part.name;
+  dm.QInsAdres_part.ExecSQL;
+end;
+
+end.

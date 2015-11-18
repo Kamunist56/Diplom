@@ -1,0 +1,37 @@
+unit cStreet;
+
+interface
+type
+  Tstreet = Class
+    public
+    id:integer;
+    name:string;
+
+   procedure GetAtr(Find_id:integer);
+   procedure ChangeAtr(Street:TStreet);
+  End;
+implementation
+
+{ Tstreet }
+
+uses fDM;
+
+procedure Tstreet.ChangeAtr(Street: TStreet);
+begin
+   dm.QUpdStreet.Parameters.ParamValues['id']:=Street.id;
+   dm.QUpdStreet.Parameters.ParamValues['name']:=Street.name;
+   dm.QUpdStreet.ExecSQL;
+end;
+
+
+
+procedure Tstreet.GetAtr(Find_id: integer);
+begin
+    dm.QGetStreet.Close;
+    dm.QGetStreet.Parameters.ParamValues['id']:=Find_id;
+    dm.QGetStreet.Open;
+    name:=dm.QGetStreetname.AsString;
+    id:=find_id;
+end;
+
+end.

@@ -1,0 +1,136 @@
+unit ePacient;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls,
+  Vcl.DBCtrls, Vcl.ComCtrls, Vcl.ExtCtrls, cPac;
+
+type
+  TPacientEdit = class(TForm)
+    GroupBox1: TGroupBox;
+    Label2: TLabel;
+    Label4: TLabel;
+    LookLoc: TDBLookupComboBox;
+    LookHouse: TDBLookupComboBox;
+    Label3: TLabel;
+    Label5: TLabel;
+    LookArea: TDBLookupComboBox;
+    LookStreet: TDBLookupComboBox;
+    Button2: TButton;
+    GroupBox2: TGroupBox;
+    Label1: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    LabeledEdit1: TLabeledEdit;
+    LabeledEdit2: TLabeledEdit;
+    LabeledEdit3: TLabeledEdit;
+    DateTimePicker1: TDateTimePicker;
+    LookPolikl: TDBLookupComboBox;
+    LookSector: TDBLookupComboBox;
+    LookPolisType: TDBLookupComboBox;
+    Edit1: TEdit;
+    GroupBox3: TGroupBox;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label10: TLabel;
+    LookSoc: TDBLookupComboBox;
+    LookGroup: TDBLookupComboBox;
+    LookWork: TDBLookupComboBox;
+    ComboBox1: TComboBox;
+    Label13: TLabel;
+    procedure Button2Click(Sender: TObject);
+    procedure LookSocCloseUp(Sender: TObject);
+  private
+    Pacient: TPacient;
+
+    procedure AddPac;
+
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  PacientEdit: TPacientEdit;
+
+implementation
+
+{$R *.dfm}
+
+uses fDM;
+
+procedure TPacientEdit.AddPac;
+var
+  IdPolis, IdAdress: Integer;
+begin
+  Pacient := TPacient.Create;
+  with Pacient do
+  Begin
+    surname := LabeledEdit1.Text;
+    name_ := LabeledEdit2.Text;
+    patronymic := LabeledEdit3.Text;
+    date_birth := DateTimePicker1.Date;
+    pol:=ComboBox1.Text;
+
+    // определяем поликлинику
+    polikl.Get(LookPolikl.KeyValue);
+
+    // участок
+    Sector.Get(LookSector.KeyValue);
+
+    // создаем новый полис
+    Polis.PolisNumber := Edit1.Text;
+    Polis.PolisType.GetAtr(LookPolisType.KeyValue);
+    Polis.new;
+    // создали схватили последний id для полиса
+    IdPolis := Dm.GetLastId('Polis');
+    Polis.Get(IdPolis);
+
+    // Адрес
+    Adress.Loc.GetAtr(LookLoc.KeyValue);
+    Adress.Ar.GetAtr(LookArea.KeyValue);
+    Adress.Street.GetAtr(LookStreet.KeyValue);
+    Adress.House_numb.GetAtr(LookHouse.KeyValue);
+    Adress.new;
+    IdAdress := Dm.GetLastId('Adress');
+    Adress.GetAtr(IdAdress);
+
+    // социальный статус
+    Soc.GetAtr(LookSoc.KeyValue);
+    if LookSoc.KeyValue <> 5 then
+      Pacient.groupInval := 5
+    else
+      Pacient.groupInval := LookGroup.KeyValue;
+
+    // место работы
+    Work.Get(LookWork.KeyValue);
+    Pacient.Work.id := Work.id;
+  End;
+  Pacient.new;
+end;
+
+procedure TPacientEdit.Button2Click(Sender: TObject);
+begin
+  AddPac;
+  Dm.RefTable(Dm.QpacBrowse);
+  close;
+end;
+
+procedure TPacientEdit.LookSocCloseUp(Sender: TObject);
+begin
+  if LookSoc.KeyValue = 5 then
+  begin
+    LookGroup.Enabled := false;
+    LookGroup.KeyValue := 5
+  end
+  else
+    LookGroup.Enabled := true;
+
+end;
+
+end.

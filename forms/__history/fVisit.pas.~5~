@@ -1,0 +1,45 @@
+unit fVisit;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ComCtrls, Vcl.DBCtrls,
+  Data.DB, System.Actions, Vcl.ActnList, Vcl.PlatformDefaultStyleActnCtrls,
+  Vcl.ActnMan, Vcl.ToolWin, Vcl.ActnCtrls, Vcl.Grids, Vcl.DBGrids;
+
+type
+  TuVisit = class(TForm)
+    DBGrid1: TDBGrid;
+    ActionToolBar1: TActionToolBar;
+    AC: TActionManager;
+    Action1: TAction;
+    Action2: TAction;
+    Action3: TAction;
+    DataSource1: TDataSource;
+    procedure Action1Execute(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  uVisit: TuVisit;
+
+implementation
+
+{$R *.dfm}
+
+uses fDM, eVisit;
+
+procedure TuVisit.Action1Execute(Sender: TObject);
+begin
+  dm.OpenVisitTables;
+  VisitEdit.Show;
+  VisitEdit.insert;
+
+end;
+
+end.

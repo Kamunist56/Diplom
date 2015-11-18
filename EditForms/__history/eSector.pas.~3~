@@ -1,0 +1,30 @@
+unit eSector;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.DBCtrls, Vcl.ExtCtrls;
+
+type
+  TSectorEdit = class(TForm)
+    LabeledEdit1: TLabeledEdit;
+    LookPolikl: TDBLookupComboBox;
+    Label1: TLabel;
+    Button1: TButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  SectorEdit: TSectorEdit;
+
+implementation
+
+{$R *.dfm}
+
+uses cPolis, cPlace, fDM;
+
+end.

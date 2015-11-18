@@ -1,0 +1,62 @@
+unit eDoctor;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
+  Vcl.StdCtrls, Vcl.ComCtrls, Vcl.ExtCtrls, cDoctor, Vcl.DBCtrls;
+
+type
+  TDoctorEdit = class(TForm)
+    LabeledEdit3: TLabeledEdit;
+    LabeledEdit2: TLabeledEdit;
+    LabeledEdit1: TLabeledEdit;
+    DateTimePicker1: TDateTimePicker;
+    Label1: TLabel;
+    DBLookupComboBox1: TDBLookupComboBox;
+    Label2: TLabel;
+    Button1: TButton;
+    DBLookupComboBox2: TDBLookupComboBox;
+    Label3: TLabel;
+    procedure Button1Click(Sender: TObject);
+  private
+  Doc:TDoctor;
+    { Private declarations }
+  public
+  Insert:Boolean;
+  procedure InsDoc;
+    { Public declarations }
+  end;
+
+var
+  DoctorEdit: TDoctorEdit;
+
+implementation
+
+{$R *.dfm}
+
+uses fDM;
+
+procedure TDoctorEdit.Button1Click(Sender: TObject);
+begin
+ if Insert then
+   InsDoc
+end;
+
+procedure TDoctorEdit.InsDoc;
+begin
+  Doc:=TDoctor.Create;
+  Doc.name_:=LabeledEdit1.Text;
+  Doc.surname:=LabeledEdit2.Text;
+  Doc.patronymic:=LabeledEdit1.Text;
+  doc.enpolyment_date:=DateTimePicker1.Date;
+  doc.Position.GetAtr(DBLookupComboBox1.KeyValue);
+  doc.Polikl.GetAtr(DBLookupComboBox2.KeyValue);
+  Doc.New;
+  doc.Destroy;
+  dm.RefTable(dm.QDoctorBrowse);
+  close;
+end;
+
+end.

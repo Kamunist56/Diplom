@@ -1,0 +1,83 @@
+unit cSector;
+
+interface
+  {класс для работы с таблицей Sector}
+uses cPolikl, cAdress, fDM;
+
+Type
+  TSector = Class
+  public
+    id:integer;
+    name: String;
+    Adress:TAdress;
+    Polikl:Tpolikl;
+
+    Procedure Get(Find_id:integer);
+    procedure New(Sector:TSector);
+    procedure Change(Sector:Tsector);
+    procedure Del(Sector:Tsector);
+
+  End;
+
+implementation
+
+{ TSector }
+
+procedure TSector.Change(Sector: Tsector);
+begin
+      With dm.Qsector do
+  begin
+     close;
+     Sql.Add('update Sector set name=:name, adress=:adress, polikl=:polikl)');
+     Sql.Add('where id=:id');
+     Parameters.ParamValues['id']:=Sector.id;
+     Parameters.ParamValues['name']:=Sector.name;
+     Parameters.ParamValues['adress']:=Sector.Adress.id;
+     Parameters.ParamValues['polikl']:=Sector.Polikl.id;
+     ExecSql;
+  end;
+end;
+
+procedure TSector.Del(Sector: Tsector);
+begin
+   With dm.Qsector do
+  begin
+     close;
+     Sql.Add('delete Sector where id=:id');
+     Parameters.ParamValues['id']:=Sector.id;
+     ExecSQL;
+  end;
+end;
+
+procedure TSector.Get(Find_id: integer);
+begin
+  With dm.Qsector do
+  begin
+     close;
+     Sql.Add('select name, adress, polikl from Sector where id=:id');
+     Parameters.ParamValues['id']:=Find_id;
+     open;
+  end;
+  name:=Dm.QSector.FieldByName('name').AsString;
+  id:=find_id;
+  Adress:=TAdress.Create;
+  Adress.GetAtr(dm.QSector.FieldByName('adress').AsInteger);
+  Polikl:=Tpolikl.Create;
+  polikl.Get(dm.QSector.FieldByName('polikl').AsInteger);
+end;
+
+procedure TSector.New(Sector: TSector);
+begin
+    With dm.Qsector do
+  begin
+     close;
+     Sql.Add('insert Sector (name, adress, polikl)');
+     Sql.Add('values(:name, :adress, :polikl) ');
+     Parameters.ParamValues['name']:=Sector.name;
+     Parameters.ParamValues['adress']:=Sector.Adress.id;
+     Parameters.ParamValues['polikl']:=Sector.Polikl.id;
+     ExecSql;
+  end;
+end;
+
+end.
